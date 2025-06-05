@@ -1,0 +1,2 @@
+# A3_1Semestre_Programacao_De_Solucoes_Computacionais
+A3 trabalho em grupo
