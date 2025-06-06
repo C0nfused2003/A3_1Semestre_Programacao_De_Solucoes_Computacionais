@@ -1,0 +1,28 @@
+CREATE DATABASE controle_estoque;
+
+USE controle_estoque;
+
+CREATE TABLE categoria (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    tamanho ENUM('Pequeno', 'Médio', 'Grande'),
+    embalagem ENUM('Lata', 'Vidro', 'Plástico', "Caixa", "Papelão")
+);
+
+CREATE TABLE produto (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    preco DECIMAL(10,2),
+    unidade VARCHAR(50),
+    quantidade_estoque INT,
+    quantidade_minima INT,
+    quantidade_maxima INT,
+    categoria_id INT,
+    FOREIGN KEY (categoria_id) REFERENCES categoria(id)
+);
+
+INSERT INTO categoria(nome, tamanho, embalagem)
+VALUES("Refrigerante", "Grande","Vidro");
+
+INSERT INTO produto(nome,preco,unidade,quantidade_estoque,quantidade_minima,quantidade_maxima,categoria_id)
+VALUES("Coca Cola",7.00,"1",150,15,200,1)
